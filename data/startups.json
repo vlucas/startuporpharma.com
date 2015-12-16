@@ -1,0 +1,57 @@
+{
+  "<TEMPLATE_COPY_ME_AND_EDIT>": {
+    "site_url": "http://www.example.com",
+    "description": "<TEMPLATE>",
+    "crunchbase_url": "https://www.crunchbase.com/organization/<TEMPLATE>"
+  },
+  "Arubixs": {
+    "site_url": "http://www.arubixs.com",
+    "description": "Smartphones that are completely flexible vertically and horizontally",
+    "crunchbase_url": "https://www.crunchbase.com/organization/arubixs"
+  },
+  "Azalead": {
+    "site_url": "http://azalead.com",
+    "description": "Account Based Marketing (ABM) Software",
+    "crunchbase_url": "https://www.crunchbase.com/organization/azalead"
+  },
+  "Doctena": {
+    "site_url": "http://www.doctena.com",
+    "description": "Next generation medical booking platform, dedicated to helping patients have easier access to the doctors agendas.",
+    "crunchbase_url": "https://www.crunchbase.com/organization/doctena"
+  },
+  "Enmotus": {
+    "site_url": "http://www.enmotus.com",
+    "description": "Enmotus develops storage virtualization technologies for servers, open storage-server systems, and high performance computing operations.",
+    "crunchbase_url": "https://www.crunchbase.com/organization/enmotus"
+  },
+  "Mazlo": {
+    "site_url": "http://www.mazlo.me",
+    "description": "Seattle-based startup helping people reach their potential for personal growth with private coaching and 10 minutes of daily practice.",
+    "crunchbase_url": "https://www.crunchbase.com/organization/mazlo"
+  },
+  "Pixvana": {
+    "site_url": "http://www.pixvana.com",
+    "description": "Cloud-based technology powering VR video",
+    "crunchbase_url": "https://www.crunchbase.com/organization/pixvana-inc"
+  },
+  "Pramata": {
+    "site_url": "http://www.pramata.com",
+    "description": "Essential intelligence about your most valuable customer relationships",
+    "crunchbase_url": "https://www.crunchbase.com/organization/pramata"
+  },
+  "Triposo": {
+    "site_url": "http://www.triposo.com/",
+    "description": "iOS and Android algorithm-based travel guide app that delivers information, maps and customized recommendations for users.",
+    "crunchbase_url": "https://www.crunchbase.com/organization/triposo"
+  },
+  "Vayyar": {
+    "site_url": "http://www.vayyar.com/",
+    "description": "Transform your businesswith 3D Sensor technology",
+    "crunchbase_url": "https://www.crunchbase.com/organization/vayyar"
+  },
+  "Wix": {
+    "site_url": "http://www.wix.com",
+    "description": "Web publishing platform enabling its users to design, publish, maintain and host free websites using online drag-&-drop tools.",
+    "crunchbase_url": "https://www.crunchbase.com/organization/wix"
+  }
+}
