@@ -1,12 +1,14 @@
 import { createStore } from 'redux';
+import pharmas from '../data/pharmas.json';
+import startups from '../data/startups.json';
 
 /**
  * Initial state of the application
  */
 const initialState = {
   votes: 0,
-  startups: [],
-  pharmas: []
+  right: [],
+  wrong: []
 };
 
 
@@ -15,15 +17,30 @@ const initialState = {
  * It describes how an action transforms the state into the next state.
  */
 function voteReducer(state = initialState, action) {
+
+  /**
+   * Return new state with right/wrong determination
+   */
+  function voteRightWrongState(state, name, type) {
+    let newState =  Object.assign({}, state);
+    if (
+      (type === 'pharma'  && pharmas.hasOwnProperty(name)) ||
+      (type === 'startup' && startups.hasOwnProperty(name))
+    ) {
+      newState.right = newState.right.concat([name]);
+    } else {
+      newState.wrong = newState.wrong.concat([name]);
+    }
+    return newState;
+  }
+
   switch (action.type) {
   case 'VOTE_STARTUP':
-    return Object.assign({}, state, {
-      startups: state.startups.slice().concat([action.company]),
+    return Object.assign({}, voteRightWrongState(state, action.name, 'startup'), {
       votes: state.votes + 1
     });
   case 'VOTE_PHARMA':
-    return Object.assign({}, state, {
-      pharmas: state.pharmas.slice().concat([action.company]),
+    return Object.assign({}, voteRightWrongState(state, action.name, 'pharma'), {
       votes: state.votes + 1
     });
   case 'INITIAL_STATE':
@@ -47,13 +64,13 @@ export const actions = {
   },
 
   // Vote startup
-  voteStartup(company) {
-    store.dispatch({ type: 'VOTE_STARTUP', company });
+  voteStartup(name) {
+    store.dispatch({ type: 'VOTE_STARTUP', name });
   },
 
   // Vote pharma
-  votePharma(company) {
-    store.dispatch({ type: 'VOTE_PHARMA', company });
+  votePharma(name) {
+    store.dispatch({ type: 'VOTE_PHARMA', name });
   }
 };
 

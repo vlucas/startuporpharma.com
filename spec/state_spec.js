@@ -9,24 +9,24 @@ describe('State', function() {
   });
 
   it('should be empty be default', function() {
-    expect(store.getState()).toEqual({ votes: 0, startups: [], pharmas: [] });
+    expect(store.getState()).toEqual({ votes: 0, right: [], wrong: [] });
   });
 
-  it('should allow vote for startup', function() {
+  it('should track correct vote', function() {
     actions.voteStartup('Wix');
-    expect(store.getState()).toEqual({ votes: 1, startups: ['Wix'], pharmas: [] });
+    expect(store.getState()).toEqual({ votes: 1, right: ['Wix'], wrong: [] });
   });
 
-  it('should allow vote for pharma', function() {
-    actions.votePharma('Vigra');
-    expect(store.getState()).toEqual({ votes: 1, startups: [], pharmas: ['Vigra'] });
+  it('should track wrong vote', function() {
+    actions.voteStartup('Belviq');
+    expect(store.getState()).toEqual({ votes: 1, right: [], wrong: ['Belviq'] });
   });
 
-  it('should allow multiple votes', function() {
+  it('should track multiple votes', function() {
     actions.voteStartup('Wix');
-    actions.voteStartup('Pramada');
-    actions.voteStartup('Navvis');
-    actions.votePharma('Viagra');
-    expect(store.getState()).toEqual({ votes: 4, startups: ['Wix', 'Pramada', 'Navvis'], pharmas: ['Viagra'] });
+    actions.voteStartup('Pramata');
+    actions.voteStartup('Mazlo');
+    actions.voteStartup('Belviq');
+    expect(store.getState()).toEqual({ votes: 4, right: ['Wix', 'Pramata', 'Mazlo'], wrong: ['Belviq'] });
   });
 });
