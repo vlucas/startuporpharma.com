@@ -27,9 +27,27 @@ function voteReducer(state = initialState, action) {
       (type === 'pharma'  && pharmas.hasOwnProperty(name)) ||
       (type === 'startup' && startups.hasOwnProperty(name))
     ) {
-      newState.right = newState.right.concat([name]);
+      // Ensure vote isn't already present
+      if (newState.right.indexOf(name) === -1) {
+        newState.right = newState.right.concat([name]);
+      }
+
+      // Change vote if exists in opposite array
+      let delIndex = newState.wrong.indexOf(name);
+      if (delIndex !== -1) {
+        newState.wrong.splice(delIndex, 1);
+      }
     } else {
-      newState.wrong = newState.wrong.concat([name]);
+      // Ensure vote isn't already present
+      if (newState.wrong.indexOf(name) === -1) {
+        newState.wrong = newState.wrong.concat([name]);
+      }
+
+      // Change vote if exists in opposite array
+      let delIndex = newState.right.indexOf(name);
+      if (delIndex !== -1) {
+        newState.right.splice(delIndex, 1);
+      }
     }
     return newState;
   }
