@@ -93,6 +93,6 @@ export const actions = {
 };
 
 // You can subscribe to the updates manually, or use bindings to your view layer.
-store.subscribe(() => {
-  // console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
