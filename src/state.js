@@ -4,14 +4,27 @@ const createStore = require('redux').createStore;
 const pharmas = require('./data/pharmas.json');
 const startups = require('./data/startups.json');
 
+// Merge startups and pharmas to single 'companies' array
+const companies = Object.assign({}, pharmas, startups);
+const companyNames = [...Object.keys(startups), ...Object.keys(pharmas)].sort();
+
 /**
  * Initial state of the application
  */
 const initialState = {
   votes: 0,
+  currentCompany: companyNames[0],
+  lastVote: null,
   right: [],
   wrong: []
 };
+
+/**
+ * Return difference of two arrays
+ */
+function arrayDiff(arr1, arr2) {
+  return arr1.filter(function(i) {return arr2.indexOf(i) < 0;});
+}
 
 
 /**
@@ -35,6 +48,10 @@ function voteReducer(state, action) {
       // Ensure vote isn't already present
       if (newState.right.indexOf(name) === -1) {
         newState.right = newState.right.concat([name]);
+        newState.lastVote = {
+          result: 'right',
+          company: Object.assign({ name }, companies[name])
+        };
       }
 
       // Change vote if exists in opposite array
@@ -46,6 +63,10 @@ function voteReducer(state, action) {
       // Ensure vote isn't already present
       if (newState.wrong.indexOf(name) === -1) {
         newState.wrong = newState.wrong.concat([name]);
+        newState.lastVote = {
+          result: 'wrong',
+          company: Object.assign({ name }, companies[name])
+        };
       }
 
       // Change vote if exists in opposite array
@@ -66,6 +87,22 @@ function voteReducer(state, action) {
       return Object.assign({}, voteRightWrongState(state, action.name, 'pharma'), {
         votes: state.votes + 1
       });
+    case 'NEXT_COMPANY':
+      let usedCompanies = [...state.right, ...state.wrong];
+      let availableCompanies = arrayDiff(companyNames, usedCompanies);
+      let currentCompany;
+
+      // If we have used all company names, company name is false
+      if (availableCompanies.length === 0) {
+        currentCompany = false;
+      } else {
+        currentCompany = availableCompanies[Math.floor(Math.random()*availableCompanies.length)];
+      }
+
+      // Clear last vote result
+      state.lastVote = null;
+
+      return Object.assign({}, state, { currentCompany });
     case 'INITIAL_STATE':
       return initialState;
     default:
@@ -84,6 +121,11 @@ const actions = {
   // Reset store back to initial state (used in tests)
   reset() {
     store.dispatch({ type: 'INITIAL_STATE' });
+  },
+
+  // Select next company
+  nextCompany() {
+    store.dispatch({ type: 'NEXT_COMPANY' });
   },
 
   // Vote startup
