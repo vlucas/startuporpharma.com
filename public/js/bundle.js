@@ -19029,11 +19029,11 @@ module.exports = require('./lib/React');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Layout = require('components/Layout');
+var App = require('components/App');
 
-ReactDOM.render(React.createElement(Layout, null), document.getElementById('content'));
+ReactDOM.render(React.createElement(App, null), document.getElementById('content'));
 
-},{"components/Layout":160,"react":158,"react-dom":2}],160:[function(require,module,exports){
+},{"components/App":160,"react":158,"react-dom":2}],160:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -19045,17 +19045,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
+var startups = require('data/startups');
+var pharmas = require('data/pharmas');
 
-var Layout = (function (_React$Component) {
-  _inherits(Layout, _React$Component);
+var App = (function (_React$Component) {
+  _inherits(App, _React$Component);
 
-  function Layout() {
-    _classCallCheck(this, Layout);
+  function App() {
+    _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).apply(this, arguments));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
   }
 
-  _createClass(Layout, [{
+  _createClass(App, [{
     key: 'render',
     value: function render() {
       return React.createElement(
@@ -19066,9 +19068,147 @@ var Layout = (function (_React$Component) {
     }
   }]);
 
-  return Layout;
+  return App;
 })(React.Component);
 
-module.exports = Layout;
+module.exports = App;
 
-},{"react":158}]},{},[159]);
+},{"data/pharmas":161,"data/startups":162,"react":158}],161:[function(require,module,exports){
+module.exports={
+  "<TEMPLATE_COPY_ME_AND_EDIT>": {
+    "site_url": "http://www.example.com",
+    "description": "<TEMPLATE>",
+    "more_info_url": "http://www.example.com"
+  },
+  "Advair": {
+    "site_url": "http://www.advair.com",
+    "description": "Prevents asthma attacks and worsening of chronic obstructive pulmonary disease (COPD)",
+    "more_info_url": "http://www.drugs.com/advair.html"
+  },
+  "Abilify": {
+    "site_url": "https://www.abilify.com",
+    "description": "Anti-depressant",
+    "more_info_url": "http://www.drugs.com/abilify.html"
+  },
+  "Belviq": {
+    "site_url": "http://www.belviq.com",
+    "description": "Weight loss drug that surpressess appetite and makes you feel full sooner",
+    "more_info_url": "http://www.drugs.com/belviq.html"
+  },
+  "Celexa": {
+    "site_url": "http://www.drugs.com/celexa.html",
+    "description": "Anti-depressant in a group of drugs called selective serotonin reuptake inhibitors (SSRIs)",
+    "more_info_url": "http://www.drugs.com/celexa.html"
+  },
+  "Codeine": {
+    "site_url": "http://www.drugs.com/codeine.html",
+    "description": "Codeine is an opioid pain medication used to treat mild to moderately severe pain",
+    "more_info_url": "http://www.drugs.com/codeine.html"
+  },
+  "Effexor": {
+    "site_url": "http://www.effexorxr.com",
+    "description": "Anti-depressant in a group of drugs called selective serotonin reuptake inhibitors (SSRIs)",
+    "more_info_url": "http://www.drugs.com/effexor.html"
+  },
+  "Eliquis": {
+    "site_url": "http://www.eliquis.bmscustomerconnect.com",
+    "description": "Helps to prevent platelets in your blood from sticking together and forming a blood clot",
+    "more_info_url": "http://www.drugs.com/eliquis.html"
+  },
+  "Lexapro": {
+    "site_url": "http://www.drugs.com/lexapro.html",
+    "description": "Anti-depressant in a group of drugs called selective serotonin reuptake inhibitors (SSRIs)",
+    "more_info_url": "http://www.drugs.com/lexapro.html"
+  },
+  "Lyrica": {
+    "site_url": "http://www.lyrica.com",
+    "description": "Anti-epileptic drug, also called an anticonvulsant. It works by slowing down impulses in the brain that cause seizures",
+    "more_info_url": "http://www.drugs.com/lyrica.html"
+  },
+  "Myrbetriq": {
+    "site_url": "https://www.myrbetriq.com",
+    "description": "Overactive Bladder Medication",
+    "more_info_url": "http://www.drugs.com/myrbetriq.html"
+  },
+  "Naproxin": {
+    "site_url": "http://www.drugs.com/naproxen.html",
+    "description": "Naproxen is a nonsteroidal anti-inflammatory drug (NSAID) that works by reducing hormones that cause inflammation and pain in the body",
+    "more_info_url": "http://www.drugs.com/naproxen.html"
+  },
+  "Norco": {
+    "site_url": "http://www.drugs.com/norco.html",
+    "description": "Pain Releiver (hydrocodone + acetaminophen)",
+    "more_info_url": "http://www.drugs.com/norco.html"
+  }
+}
+
+},{}],162:[function(require,module,exports){
+module.exports={
+  "<TEMPLATE_COPY_ME_AND_EDIT>": {
+    "site_url": "http://www.example.com",
+    "description": "<TEMPLATE>",
+    "more_info_url": "https://www.crunchbase.com/organization/<TEMPLATE>"
+  },
+  "Allovue": {
+    "site_url": "http://allovue.com",
+    "description": "Education resource-planning platform for K-12 schools and districts",
+    "more_info_url": "https://www.crunchbase.com/organization/allovue"
+  },
+  "Arubixs": {
+    "site_url": "http://www.arubixs.com",
+    "description": "Smartphones that are completely flexible vertically and horizontally",
+    "more_info_url": "https://www.crunchbase.com/organization/arubixs"
+  },
+  "Azalead": {
+    "site_url": "http://azalead.com",
+    "description": "Account Based Marketing (ABM) Software",
+    "more_info_url": "https://www.crunchbase.com/organization/azalead"
+  },
+  "Doctena": {
+    "site_url": "http://www.doctena.com",
+    "description": "Next generation medical booking platform, dedicated to helping patients have easier access to the doctors agendas.",
+    "more_info_url": "https://www.crunchbase.com/organization/doctena"
+  },
+  "Enmotus": {
+    "site_url": "http://www.enmotus.com",
+    "description": "Enmotus develops storage virtualization technologies for servers, open storage-server systems, and high performance computing operations.",
+    "more_info_url": "https://www.crunchbase.com/organization/enmotus"
+  },
+  "Mazlo": {
+    "site_url": "http://www.mazlo.me",
+    "description": "Seattle-based startup helping people reach their potential for personal growth with private coaching and 10 minutes of daily practice.",
+    "more_info_url": "https://www.crunchbase.com/organization/mazlo"
+  },
+  "Ongair": {
+    "site_url": "https://ongair.im",
+    "description": "Customer service platform that integrates with messengers like Facebook Messenger, WeChat, Telegram, Kik, and others.",
+    "more_info_url": "https://www.crunchbase.com/organization/ongair"
+  },
+  "Pixvana": {
+    "site_url": "http://www.pixvana.com",
+    "description": "Cloud-based technology powering VR video",
+    "more_info_url": "https://www.crunchbase.com/organization/pixvana-inc"
+  },
+  "Pramata": {
+    "site_url": "http://www.pramata.com",
+    "description": "Essential intelligence about your most valuable customer relationships",
+    "more_info_url": "https://www.crunchbase.com/organization/pramata"
+  },
+  "Triposo": {
+    "site_url": "http://www.triposo.com/",
+    "description": "iOS and Android algorithm-based travel guide app that delivers information, maps and customized recommendations for users.",
+    "more_info_url": "https://www.crunchbase.com/organization/triposo"
+  },
+  "Vayyar": {
+    "site_url": "http://www.vayyar.com/",
+    "description": "Transform your businesswith 3D Sensor technology",
+    "more_info_url": "https://www.crunchbase.com/organization/vayyar"
+  },
+  "Wix": {
+    "site_url": "http://www.wix.com",
+    "description": "Web publishing platform enabling its users to design, publish, maintain and host free websites using online drag-&-drop tools.",
+    "more_info_url": "https://www.crunchbase.com/organization/wix"
+  }
+}
+
+},{}]},{},[159]);
