@@ -1,6 +1,8 @@
-import { createStore } from 'redux';
-import pharmas from '../data/pharmas.json';
-import startups from '../data/startups.json';
+'use strict';
+
+const createStore = require('redux').createStore;
+const pharmas = require('./data/pharmas.json');
+const startups = require('./data/startups.json');
 
 /**
  * Initial state of the application
@@ -16,7 +18,10 @@ const initialState = {
  * This is a reducer, a pure function with (state, action) => state signature.
  * It describes how an action transforms the state into the next state.
  */
-function voteReducer(state = initialState, action) {
+function voteReducer(state, action) {
+  if (!state) {
+    state = initialState;
+  }
 
   /**
    * Return new state with right/wrong determination
@@ -53,29 +58,29 @@ function voteReducer(state = initialState, action) {
   }
 
   switch (action.type) {
-  case 'VOTE_STARTUP':
-    return Object.assign({}, voteRightWrongState(state, action.name, 'startup'), {
-      votes: state.votes + 1
-    });
-  case 'VOTE_PHARMA':
-    return Object.assign({}, voteRightWrongState(state, action.name, 'pharma'), {
-      votes: state.votes + 1
-    });
-  case 'INITIAL_STATE':
-    return initialState;
-  default:
-    return state;
+    case 'VOTE_STARTUP':
+      return Object.assign({}, voteRightWrongState(state, action.name, 'startup'), {
+        votes: state.votes + 1
+      });
+    case 'VOTE_PHARMA':
+      return Object.assign({}, voteRightWrongState(state, action.name, 'pharma'), {
+        votes: state.votes + 1
+      });
+    case 'INITIAL_STATE':
+      return initialState;
+    default:
+      return state;
   }
 }
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
-export const store = createStore(voteReducer);
+const store = createStore(voteReducer);
 
 /**
  * Actions available
  */
-export const actions = {
+const actions = {
   // Reset store back to initial state (used in tests)
   reset() {
     store.dispatch({ type: 'INITIAL_STATE' });
@@ -96,3 +101,5 @@ export const actions = {
 // store.subscribe(() => {
 //   console.log(store.getState());
 // });
+
+module.exports = { store, actions };

@@ -1,9 +1,4 @@
 {
-  "<TEMPLATE_COPY_ME_AND_EDIT>": {
-    "site_url": "http://www.example.com",
-    "description": "<TEMPLATE>",
-    "more_info_url": "https://www.crunchbase.com/organization/<TEMPLATE>"
-  },
   "Allovue": {
     "site_url": "http://allovue.com",
     "description": "Education resource-planning platform for K-12 schools and districts",

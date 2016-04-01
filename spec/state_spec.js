@@ -1,4 +1,4 @@
-var state = require('../build/state');
+var state = require('../src/state');
 var store = state.store;
 var actions = state.actions;
 

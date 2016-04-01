@@ -1,3 +1,5 @@
+'use strict';
+
 const React = require('react');
 
 let CompanyCard = React.createClass({

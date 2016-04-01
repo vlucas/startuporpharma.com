@@ -19044,9 +19044,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var React = require('react');
 var startups = require('data/startups');
 var pharmas = require('data/pharmas');
+var companies = [].concat(_toConsumableArray(Object.keys(startups)), _toConsumableArray(Object.keys(pharmas)));
+console.log(companies);
 
 var App = (function (_React$Component) {
   _inherits(App, _React$Component);
@@ -19063,7 +19067,21 @@ var App = (function (_React$Component) {
       return React.createElement(
         'div',
         null,
-        this.props.children
+        this.props.children,
+        React.createElement(
+          'div',
+          { className: 'pure-g' },
+          React.createElement(
+            'div',
+            { className: 'pure-u-1-2' },
+            React.createElement('img', { className: 'pure-img-responsive', src: 'http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg', alt: 'Peyto Lake' })
+          ),
+          React.createElement(
+            'div',
+            { className: 'pure-u-1-2' },
+            React.createElement('img', { className: 'pure-img-responsive', src: 'http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg', alt: 'Train' })
+          )
+        )
       );
     }
   }]);
@@ -19075,11 +19093,6 @@ module.exports = App;
 
 },{"data/pharmas":161,"data/startups":162,"react":158}],161:[function(require,module,exports){
 module.exports={
-  "<TEMPLATE_COPY_ME_AND_EDIT>": {
-    "site_url": "http://www.example.com",
-    "description": "<TEMPLATE>",
-    "more_info_url": "http://www.example.com"
-  },
   "Advair": {
     "site_url": "http://www.advair.com",
     "description": "Prevents asthma attacks and worsening of chronic obstructive pulmonary disease (COPD)",
@@ -19144,11 +19157,6 @@ module.exports={
 
 },{}],162:[function(require,module,exports){
 module.exports={
-  "<TEMPLATE_COPY_ME_AND_EDIT>": {
-    "site_url": "http://www.example.com",
-    "description": "<TEMPLATE>",
-    "more_info_url": "https://www.crunchbase.com/organization/<TEMPLATE>"
-  },
   "Allovue": {
     "site_url": "http://allovue.com",
     "description": "Education resource-planning platform for K-12 schools and districts",
