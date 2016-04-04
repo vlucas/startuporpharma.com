@@ -12,7 +12,7 @@ git init .
 git remote add github $GIT_REPO_URL
 git checkout -b gh-pages
 git add .
-git commit -am "Static site deploy"
+git commit -am "Static site deploy: `date +"%m-%d-%y %r"`"
 git push github gh-pages --force
 cd ..
 rm -rf .deploy
