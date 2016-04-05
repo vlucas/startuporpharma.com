@@ -1,0 +1,220 @@
+body {
+  color: #777;
+}
+
+.pure-img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout,
+#menu,
+.menu-link {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+  position: relative;
+  padding-left: 0;
+}
+
+/*
+The content `<div>` is where all your content goes.
+*/
+.content {
+  margin: 0 auto;
+  padding: 0 2em;
+  max-width: 800px;
+  margin-bottom: 50px;
+  line-height: 1.6em;
+}
+
+.header {
+  margin: 0;
+  color: #333;
+  text-align: center;
+  padding: 2.5em 2em 0;
+  border-bottom: 1px solid #eee;
+}
+  .header h1 {
+    margin: 0.2em 0;
+    font-size: 3em;
+    font-weight: 300;
+  }
+  .header h2 {
+    font-weight: 300;
+    color: #aaa;
+    padding: 0;
+    margin-top: 0;
+  }
+
+.content-subhead {
+  margin: 50px 0 20px 0;
+  font-weight: 300;
+  color: #888;
+}
+
+/**
+ * SOP specific styles
+ */
+.sop-game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+h3.sop-company-name {
+  margin: 1.5em;
+  padding: 1em;
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #666;
+  color: #000;
+}
+a.sop-vote-block {
+  display: block;
+  height: 4em;
+  margin: 10px;
+  padding: 1em;
+  font-size: 3em;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-position: 50% 80%;
+  background-repeat: no-repeat;
+  color: #000;
+  opacity: 0.8;
+}
+  a.sop-vote-block:hover {
+    background-color: #f5f5f5;
+  }
+.sop-vote-startup {
+  background-image: url(../img/screen.png);
+}
+.sop-vote-pharma {
+  background-image: url(../img/pill.png);
+}
+.text-center {
+  text-align: center;
+}
+
+#sop-modal-background {
+  background: #000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+#sop-vote-results-modal {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  border: 3px solid #000;
+  background-color: #eee;
+  opacity: 1;
+  text-align: center;
+}
+  #sop-vote-results-modal h3 {
+    font-size: 1.5em;
+  }
+  #sop-vote-results-modal p {
+    font-size: 1.3em;
+    padding: 0 1em;
+  }
+  #sop-vote-results-modal button {
+    font-size: 1.2em;
+  }
+
+.sop-vote-results-right,
+.sop-vote-results-wrong {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+}
+.sop-vote-results-right {
+  background-color: #15d81f;
+  color: #fff;
+}
+.sop-vote-results-wrong {
+  background-color: #ea3a3a;
+  color: #fff;
+}
+
+.sop-game-score {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #333;
+  font-size: 0.8em;
+  color: #fff;
+  opacity: 0.7;
+}
+  .sop-game-score h3 {
+    margin: 0;
+    padding: 0 10px;
+    display: block;
+    background-color: #111;
+    color: #fff;
+  }
+  .sop-game-score p {
+    padding: 0 10px;
+    margin: 0;
+  }
+  /* render in-line when in game contaner (game over screen) */
+  .sop-game-container .sop-game-score {
+    position: relative;
+    width: 20em;
+    margin: 0 auto;
+    top: auto;
+    right: auto;
+    background-color: #d1d1d1;
+    font-size: 0.8em;
+    color: inherit;
+    opacity: 1;
+    margin-bottom: 2em;
+  }
+
+button {
+  font-family: inherit;
+  font-size: 100%;
+  padding: .5em 1em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  background-color: #1F8DD6;
+  color: #fff;
+}
